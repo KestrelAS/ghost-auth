@@ -1,0 +1,35 @@
+node_modules/
+dist/
+src-tauri/target/
+src-tauri/gen/
+*.log
+.DS_Store
+.claude/
+AUTH_PROJECT.md
+ADDING_LANGUAGE_SUPPORT.md
+AUDIT_FIXES.md
+ROADMAP.md
+KNOWN_ISSUES.md
+markdowns/
+storelistings/
+
+# Secrets and certificates
+.env*
+*.pem
+*.key
+*.p12
+
+# IDE / editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# AI assistant config
+.claude/
+
+build-ios.sh
+export-ios.sh
+
+# Swift Package Manager build cache
+patches/**/.build/

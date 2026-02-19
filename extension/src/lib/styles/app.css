@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #000000;
+  --color-fg: #ffffff;
+  --color-surface: #0a0a0a;
+  --color-surface-2: #111111;
+  --color-border: #3d3d3d;
+  --color-dim: #777777;
+  --color-muted: #999999;
+  --color-accent: #4ade80;
+  --color-error: #f87171;
+  --color-backdrop: rgba(0, 0, 0, 0.8);
+  --color-backdrop-light: rgba(0, 0, 0, 0.5);
+}
+
+/* Light theme overrides */
+[data-theme="light"] {
+  --color-bg: #f5f5f0;
+  --color-fg: #1a1a1a;
+  --color-surface: #ededea;
+  --color-surface-2: #e5e5e0;
+  --color-border: #8a8a85;
+  --color-dim: #5a5a5a;
+  --color-muted: #555555;
+  --color-accent: #16a34a;
+  --color-error: #dc2626;
+  --color-backdrop: rgba(0, 0, 0, 0.4);
+  --color-backdrop-light: rgba(0, 0, 0, 0.25);
+}
+
+html, body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", "Courier New", monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+  -webkit-user-select: none;
+  margin: 0;
+  padding: 0;
+  width: 380px;
+  min-height: 540px;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-fg);
+  color: var(--color-bg);
+}
+
+/* Dotted line utility */
+.border-dotted-b {
+  border-bottom: 1px dotted var(--color-border);
+}
+
+.border-dotted-t {
+  border-top: 1px dotted var(--color-border);
+}
+
+/* Input styling */
+input, textarea, select {
+  font-family: inherit;
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--color-dim);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+}
+
+/* Icon theme adaptation */
+.icon-adapt {
+  filter: invert(1);
+}
+[data-theme="light"] .icon-adapt {
+  filter: invert(0);
+}
+
+/* Focus visibility for WCAG 2.4.7 */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Shake animation for wrong PIN/password */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+.animate-shake {
+  animation: shake 0.4s ease-in-out;
+}
+
+/* Modal backdrop fade */
+.modal-backdrop {
+  background: var(--color-backdrop);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.modal-backdrop.open {
+  opacity: 1;
+}
+
+/* Modal panel slide-up */
+.modal-panel {
+  transform: translateY(24px);
+  opacity: 0;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  padding-bottom: 2rem;
+}
+.modal-panel.open {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Splash fade-in */
+@keyframes splash-fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.splash-fade-in {
+  animation: splash-fade-in 0.4s ease-out;
+}

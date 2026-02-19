@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Ghost Auth",
+  "version": "1.0.1",
+  "description": "Open-source TOTP authenticator — companion extension for Ghost Auth",
+  "permissions": ["storage", "alarms"],
+  "action": {
+    "default_popup": "src/popup/index.html",
+    "default_title": "Ghost Auth",
+    "default_icon": {
+      "48": "icons/icon-48.png",
+      "96": "icons/icon-96.png"
+    }
+  },
+  "background": {
+    "scripts": ["service-worker.js"],
+    "type": "module"
+  },
+  "icons": {
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "ghostauth@kestrel.no",
+      "strict_min_version": "115.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  }
+}

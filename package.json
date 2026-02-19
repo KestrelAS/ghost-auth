@@ -1,0 +1,44 @@
+{
+  "name": "Ghost Auth",
+  "private": true,
+  "license": "GPL-3.0-only",
+  "version": "1.2.21",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "tauri": "tauri"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@sveltejs/vite-plugin-svelte": "^5.0.0",
+    "@tailwindcss/vite": "^4.0.0",
+    "@tauri-apps/cli": "^2.0.0",
+    "@testing-library/svelte": "^5.3.1",
+    "@types/qrcode": "^1.5.6",
+    "@vitest/coverage-v8": "^4.0.18",
+    "jsdom": "^28.0.0",
+    "svelte": "^5.0.0",
+    "svelte-check": "^4.0.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.0.0",
+    "vite": "^6.0.0",
+    "vitest": "^4.0.18"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2.0.0",
+    "@tauri-apps/plugin-barcode-scanner": "^2.0.0",
+    "@tauri-apps/plugin-biometric": "^2.3.2",
+    "@tauri-apps/plugin-clipboard-manager": "^2.3.2",
+    "@tauri-apps/plugin-opener": "^2.5.3",
+    "fuse.js": "^7.1.0",
+    "jsqr": "^1.4.0",
+    "qrcode": "^1.5.4",
+    "svelte-i18n": "^4.0.1"
+  }
+}
