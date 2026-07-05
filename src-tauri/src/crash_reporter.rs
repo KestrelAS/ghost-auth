@@ -280,10 +280,7 @@ fn sanitize_string(input: &str) -> String {
     // 3. Redact home-directory paths → basename only
     let home_patterns = ["/Users/", "/home/", "C:\\Users\\", "C:/Users/"];
     for pattern in &home_patterns {
-        loop {
-            let Some(pos) = result.find(pattern) else {
-                break;
-            };
+        while let Some(pos) = result.find(pattern) {
             let end = result[pos..]
                 .find(|c: char| c.is_whitespace() || c == '\'' || c == '"' || c == ')' || c == ']')
                 .map(|i| pos + i)

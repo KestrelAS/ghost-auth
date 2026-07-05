@@ -1,0 +1,23 @@
+# cargo-audit configuration.
+# CI runs `cargo audit` with `working-directory: src-tauri`, so this file
+# (src-tauri/.cargo/audit.toml) is picked up automatically.
+
+[advisories]
+# quick-xml quadratic-parse (RUSTSEC-2026-0194) and unbounded-namespace
+# memory-exhaustion (RUSTSEC-2026-0195) advisories.
+#
+# quick-xml is only pulled in transitively at BUILD TIME, via two paths we
+# don't control and can't bump without upstream releases:
+#   - plist 1.8.0            <- tauri 2.10.3        (quick-xml 0.38.4, ^0.38)
+#   - wayland-scanner 0.31.10 <- arboard <- tauri-plugin-clipboard-manager
+#                                                    (quick-xml 0.39.2, ^0.39)
+# Both advisories are fixed in quick-xml >=0.41.0 — a semver-incompatible bump
+# only the upstream crates can make. Neither path parses attacker-controlled
+# XML at runtime (plist bundling and Wayland protocol codegen operate on
+# trusted, in-tree inputs), so the DoS is not reachable in this app.
+#
+# Revisit and remove once Tauri updates its transitive quick-xml requirement.
+ignore = [
+    "RUSTSEC-2026-0194",
+    "RUSTSEC-2026-0195",
+]
