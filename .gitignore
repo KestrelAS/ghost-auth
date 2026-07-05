@@ -22,6 +22,10 @@ scripts/
 # Swift Package Manager build cache
 patches/**/.build/
 
+# Gradle build cache (vendored Android plugin patches)
+.gradle/
+.cxx/
+
 # QR code test fixtures (may contain real TOTP secrets)
 test-fixtures/qr-images/*.png
 test-fixtures/qr-images/*.jpg
