@@ -12,10 +12,10 @@
 
 ## Checklist
 
-- [ ] `cargo fmt` — code is formatted
-- [ ] `cargo clippy --all-targets -- -D warnings` — no warnings
-- [ ] `cargo test` — Rust tests pass
-- [ ] `npm test` — frontend tests pass
-- [ ] `npm run check` — TypeScript types are valid
+- [ ] `cargo fmt`: code is formatted
+- [ ] `cargo clippy --all-targets -- -D warnings`: no warnings
+- [ ] `cargo test`: Rust tests pass
+- [ ] `npm test`: frontend tests pass
+- [ ] `npm run check`: TypeScript types are valid
 - [ ] No secrets, keys, or credentials in the diff
 - [ ] Security-sensitive changes are called out in the description above

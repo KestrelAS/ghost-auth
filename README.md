@@ -16,28 +16,28 @@ A cross-platform TOTP authenticator app built with [Tauri 2](https://tauri.app/)
 
 ## Features
 
-- **TOTP codes** — RFC 6238 compliant (SHA1, SHA256, SHA512), configurable digits and period
-- **QR code scanning** — add accounts by scanning QR codes (mobile) or pasting `otpauth://` URIs
-- **Manual entry** — add accounts with custom issuer, label, secret, algorithm, digits, and period
-- **Import from other apps** — import accounts from Aegis, 2FAS, andOTP, FreeOTP+, Ente Auth, Bitwarden, Proton, Google Authenticator, or any file containing `otpauth://` URIs (JSON, CSV, XML, plain text)
-- **Encrypted storage** — AES-256-GCM encryption with keys stored in the OS keychain (Windows Credential Manager, macOS Keychain, iOS Keychain, Android KeyStore)
-- **PIN lock** — optional Argon2-hashed PIN with escalating rate limiting
-- **Biometric unlock** — fingerprint/face unlock on supported devices
-- **Device-to-device sync** — pair devices via QR code, sync accounts over LAN with per-account E2E encryption and conflict resolution
-- **Browser extension sync** — sync accounts between the app and the companion browser extension over local network
-- **iCloud sync** — automatic cloud sync across Apple devices (iOS/macOS)
-- **Encrypted backups** — export/import with Argon2id key derivation and AES-GCM encryption
-- **Multi-language** — 79 languages with community-contributed translations
-- **Crash reporting** — opt-in, privacy-preserving error reporting with data sanitization (disabled by default)
-- **Search & filter** — quickly find accounts by issuer or label
-- **Account reordering** — arrange accounts in your preferred order
-- **Copy to clipboard** — tap any code to copy it
-- **Browser extension** — companion extension for Chrome, Firefox, and Edge with its own encrypted vault, PIN lock, and device sync
+- **TOTP codes**: RFC 6238 compliant (SHA1, SHA256, SHA512), configurable digits and period
+- **QR code scanning**: add accounts by scanning QR codes (mobile) or pasting `otpauth://` URIs
+- **Manual entry**: add accounts with custom issuer, label, secret, algorithm, digits, and period
+- **Import from other apps**: import accounts from Aegis, 2FAS, andOTP, FreeOTP+, Ente Auth, Bitwarden, Proton, Google Authenticator, or any file containing `otpauth://` URIs (JSON, CSV, XML, plain text)
+- **Encrypted storage**: AES-256-GCM encryption with keys stored in the OS keychain (Windows Credential Manager, macOS Keychain, iOS Keychain, Android KeyStore)
+- **PIN lock**: optional Argon2-hashed PIN with escalating rate limiting
+- **Biometric unlock**: fingerprint/face unlock on supported devices
+- **Device-to-device sync**: pair devices via QR code, sync accounts over LAN with per-account E2E encryption and conflict resolution
+- **Browser extension sync**: sync accounts between the app and the companion browser extension over local network
+- **iCloud sync**: automatic cloud sync across Apple devices (iOS/macOS)
+- **Encrypted backups**: export/import with Argon2id key derivation and AES-GCM encryption
+- **Multi-language**: 79 languages with community-contributed translations
+- **Crash reporting**: opt-in, privacy-preserving error reporting with data sanitization (disabled by default)
+- **Search & filter**: quickly find accounts by issuer or label
+- **Account reordering**: arrange accounts in your preferred order
+- **Copy to clipboard**: tap any code to copy it
+- **Browser extension**: companion extension for Chrome, Firefox, and Edge with its own encrypted vault, PIN lock, and device sync
 
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/) (v18+)
-- [Rust](https://www.rust-lang.org/tools/install) (1.85+ stable — edition 2024)
+- [Rust](https://www.rust-lang.org/tools/install) (1.85+ stable, edition 2024)
 - [Tauri CLI prerequisites](https://tauri.app/start/prerequisites/) for your platform
 
 ## Setup
@@ -130,7 +130,7 @@ ghost-auth/
 ## Security Model
 
 - TOTP secrets are encrypted at rest with AES-256-GCM
-- Encryption keys are stored in the OS keychain — never on disk
+- Encryption keys are stored in the OS keychain, never on disk
   - **Windows:** Credential Manager
   - **macOS:** Keychain
   - **iOS:** Keychain via Security.framework
@@ -142,7 +142,7 @@ ghost-auth/
 - Crash reporting is disabled by default, opt-in only, and sanitizes all data through an allowlist/denylist before transmission
 - CSP headers restrict script and resource loading
 
-> **Browser extension:** The companion browser extension operates under a different security boundary — TOTP secrets must be handled in JavaScript since browser extensions cannot use native OS keystores. See [extension/README.md](extension/README.md) for the extension's security model.
+> **Browser extension:** The companion browser extension operates under a different security boundary: TOTP secrets must be handled in JavaScript since browser extensions cannot use native OS keystores. See [extension/README.md](extension/README.md) for the extension's security model.
 
 ## Contributing
 

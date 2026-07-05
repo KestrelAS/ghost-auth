@@ -8,15 +8,15 @@ We're actively looking for help in two areas:
 
 ### Translation Review
 
-Ghost Auth supports 79 languages, but many translations were initially AI-generated and need review by native speakers. If you're fluent in a supported language, reviewing and correcting translations is one of the highest-impact contributions you can make — no Rust or Svelte knowledge required.
+Ghost Auth supports 79 languages, but many translations were initially AI-generated and need review by native speakers. If you're fluent in a supported language, reviewing and correcting translations is one of the highest-impact contributions you can make, no Rust or Svelte knowledge required.
 
 See the **[Translation Guide](docs/TRANSLATION_GUIDE.md)** for step-by-step instructions.
 
 ### Store Listing Graphics
 
-We need help with graphical design for store listing assets — screenshots, feature graphics, and promotional images. Browser extension store graphics (Chrome Web Store, Firefox Add-ons) are the most needed right now, but App Store (iOS) and Play Store (Android) assets are also welcome.
+We need help with graphical design for store listing assets: screenshots, feature graphics, and promotional images. Browser extension store graphics (Chrome Web Store, Firefox Add-ons) are the most needed right now, but App Store (iOS) and Play Store (Android) assets are also welcome.
 
-Although not a requirement, it's greatly appreciated if contributed graphics include locale support — translated text within the graphics themselves, and screenshots captured from the app or extension in different languages. This helps Ghost Auth feel native to users across all 79 supported languages.
+Although not a requirement, it's greatly appreciated if contributed graphics include locale support: translated text within the graphics themselves, and screenshots captured from the app or extension in different languages. This helps Ghost Auth feel native to users across all 79 supported languages.
 
 If you have design skills and want to contribute, open an issue with the `design` label to coordinate.
 
@@ -43,10 +43,10 @@ npm run tauri dev
 
 The app is split into two layers:
 
-- **`src/`** — Svelte 5 frontend (UI components, stores, styles)
-- **`src-tauri/src/`** — Rust backend (cryptography, storage, TOTP generation)
+- **`src/`**: Svelte 5 frontend (UI components, stores, styles)
+- **`src-tauri/src/`**: Rust backend (cryptography, storage, TOTP generation)
 
-All security-critical code lives in the Rust backend. The frontend never handles raw TOTP secrets — it only receives generated codes via Tauri commands.
+All security-critical code lives in the Rust backend. The frontend never handles raw TOTP secrets; it only receives generated codes via Tauri commands.
 
 See the [README](README.md) for a full directory breakdown.
 
@@ -79,7 +79,7 @@ npm run test:e2e
 
 ### TypeScript / Svelte
 
-- TypeScript strict mode is enabled — no `any` types
+- TypeScript strict mode is enabled: no `any` types
 - Unused variables and parameters are compile errors
 - Run `npm run check` before submitting
 
@@ -87,7 +87,7 @@ npm run test:e2e
 
 All contributors must sign our [Contributor License Agreement (CLA)](docs/CLA.md) before their pull request can be merged. This assigns copyright to Kestrel AS so the project can be maintained, protected, and licensed consistently.
 
-When you open your first PR, the CLA Assistant bot will comment with instructions — just reply with the signing phrase and you're done. It's a one-time step.
+When you open your first PR, the CLA Assistant bot will comment with instructions: just reply with the signing phrase and you're done. It's a one-time step.
 
 ## Submitting Changes
 
@@ -109,7 +109,7 @@ Write commit messages that explain the *why*, not just the *what*:
 
 ### Pull Request Guidelines
 
-- Keep PRs focused — one feature or fix per PR
+- Keep PRs focused: one feature or fix per PR
 - Include a description of what changed and how to test it
 - If your change touches security-sensitive code (anything in `src-tauri/src/`), call that out explicitly in the PR description
 

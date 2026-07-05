@@ -15,11 +15,9 @@ scripts/
 # IDE / editor
 .idea/
 .vscode/
+.claude/
 *.swp
 *.swo
-
-# AI assistant config
-.claude/
 
 # Swift Package Manager build cache
 patches/**/.build/

@@ -1,4 +1,4 @@
-# Ghost Auth — Internationalization & Translation Guide
+# Ghost Auth: Internationalization & Translation Guide
 
 ## Overview
 
@@ -73,7 +73,7 @@ When in doubt, err on the side of formality. Users trust security apps more when
 
 ### Natural Language, Not Word-for-Word
 
-Translations should read as **natural, fluent text** in the target language — not as a word-for-word transliteration from English. The use of symbols, abbreviations, and terminology should match the conventions of the translated language.
+Translations should read as **natural, fluent text** in the target language, not as a word-for-word transliteration from English. The use of symbols, abbreviations, and terminology should match the conventions of the translated language.
 
 For example, the English string `"Scan QR code"` might become `"QR-kode scannen"` in Dutch but should **not** be `"Scan QR code"` left in English if the target language has natural equivalents for "scan."
 
@@ -81,8 +81,8 @@ For example, the English string `"Scan QR code"` might become `"QR-kode scannen"
 
 Translation strings may contain placeholders such as `{count}`, `{email}`, `{appName}`, or `{timeRemaining}`. Translators must:
 
-- **Preserve all placeholders exactly** — do not translate, rename, or remove them.
-- **Reorder freely** — word order differs between languages. Place the variable where it fits naturally in the target language's grammar.
+- **Preserve all placeholders exactly**: do not translate, rename, or remove them.
+- **Reorder freely**: word order differs between languages. Place the variable where it fits naturally in the target language's grammar.
 
 Example:
 ```
@@ -126,10 +126,10 @@ Be aware of this when translating strings for buttons, labels, and other space-c
 
 The following supported locales are **right-to-left**:
 
-- `ar` — Arabic
-- `he` — Hebrew (registered as `iw-IL` on Play Store)
-- `ur` — Urdu
-- `fa`, `fa-AE`, `fa-AF`, `fa-IR` — Persian / Dari
+- `ar`: Arabic
+- `he`: Hebrew (registered as `iw-IL` on Play Store)
+- `ur`: Urdu
+- `fa`, `fa-AE`, `fa-AF`, `fa-IR`: Persian / Dari
 
 Translators for RTL languages should verify that:
 
@@ -156,7 +156,7 @@ If the target language commonly uses a transliteration of these terms (e.g., "К
 If a translator is unsure about the best translation for a string:
 
 - **Flag the string** by adding a comment in the JSON file or translation management system.
-- **Do not leave it in English** without flagging — silent untranslated strings are harder to catch than flagged ones.
+- **Do not leave it in English** without flagging. Silent untranslated strings are harder to catch than flagged ones.
 - **Provide a best-effort translation** with a note explaining the uncertainty.
 
 ---
@@ -188,83 +188,83 @@ Before merging a new locale, verify:
 
 ## Currently Supported Locales
 
-- `af` — Afrikaans
-- `am` — አማርኛ
-- `ar` — العربية (RTL)
-- `az` — Azərbaycanca
-- `be` — Беларуская
-- `bg` — Български
-- `bn` — বাংলা
-- `ca` — Català
-- `cs` — Čeština
-- `da` — Dansk
-- `de` — Deutsch
-- `el` — Ελληνικά
-- `en` — English (source language, fallback; base locale for all English variants)
-- `es` — Español (base locale for all Spanish variants)
-- `et` — Eesti
-- `eu` — Euskara
-- `fa` — فارسی (RTL; base locale for all Persian variants)
-- `fa-AE` — فارسی (امارات) (RTL)
-- `fa-AF` — دری (RTL)
-- `fa-IR` — فارسی (ایران) (RTL)
-- `fi` — Suomi
-- `fil` — Filipino
-- `fr` — Français (base locale for all French variants)
-- `gl` — Galego
-- `gu` — ગુજરાતી
-- `he` — עברית (RTL)
-- `hi` — हिन्दी
-- `hr` — Hrvatski
-- `hu` — Magyar
-- `hy` — Հայերեն
-- `id` — Bahasa Indonesia
-- `is` — Íslenska
-- `it` — Italiano
-- `ja` — 日本語
-- `ka` — ქართული
-- `kk` — Қазақша
-- `km` — ភាសាខ្មែរ
-- `kn` — ಕನ್ನಡ
-- `ko` — 한국어
-- `ky` — Кыргызча
-- `lo` — ລາວ
-- `lt` — Lietuvių
-- `lv` — Latviešu
-- `mk` — Македонски
-- `ml` — മലയാളം
-- `mn` — Монгол
-- `mr` — मराठी
-- `ms` — Bahasa Melayu
-- `my` — မြန်မာ
-- `nb` — Norsk bokmål
-- `ne` — नेपाली
-- `nl` — Nederlands
-- `nn` — Norsk nynorsk
-- `pa` — ਪੰਜਾਬੀ
-- `pl` — Polski
-- `pt` — Português (base locale for all Portuguese variants)
-- `rm` — Rumantsch
-- `ro` — Română
-- `ru` — Русский
-- `si` — සිංහල
-- `sk` — Slovenčina
-- `sl` — Slovenščina
-- `sq` — Shqip
-- `sr` — Српски
-- `sv` — Svenska
-- `sw` — Kiswahili
-- `ta` — தமிழ்
-- `te` — తెలుగు
-- `th` — ไทย
-- `tr` — Türkçe
-- `uk` — Українська
-- `ur` — اردو (RTL)
-- `vi` — Tiếng Việt
-- `zh-CN` — 中文 (简体)
-- `zh-HK` — 中文 (香港)
-- `zh-TW` — 中文 (繁體)
-- `zu` — isiZulu
+- `af`: Afrikaans
+- `am`: አማርኛ
+- `ar`: العربية (RTL)
+- `az`: Azərbaycanca
+- `be`: Беларуская
+- `bg`: Български
+- `bn`: বাংলা
+- `ca`: Català
+- `cs`: Čeština
+- `da`: Dansk
+- `de`: Deutsch
+- `el`: Ελληνικά
+- `en`: English (source language, fallback; base locale for all English variants)
+- `es`: Español (base locale for all Spanish variants)
+- `et`: Eesti
+- `eu`: Euskara
+- `fa`: فارسی (RTL; base locale for all Persian variants)
+- `fa-AE`: فارسی (امارات) (RTL)
+- `fa-AF`: دری (RTL)
+- `fa-IR`: فارسی (ایران) (RTL)
+- `fi`: Suomi
+- `fil`: Filipino
+- `fr`: Français (base locale for all French variants)
+- `gl`: Galego
+- `gu`: ગુજરાતી
+- `he`: עברית (RTL)
+- `hi`: हिन्दी
+- `hr`: Hrvatski
+- `hu`: Magyar
+- `hy`: Հայերեն
+- `id`: Bahasa Indonesia
+- `is`: Íslenska
+- `it`: Italiano
+- `ja`: 日本語
+- `ka`: ქართული
+- `kk`: Қазақша
+- `km`: ភាសាខ្មែរ
+- `kn`: ಕನ್ನಡ
+- `ko`: 한국어
+- `ky`: Кыргызча
+- `lo`: ລາວ
+- `lt`: Lietuvių
+- `lv`: Latviešu
+- `mk`: Македонски
+- `ml`: മലയാളം
+- `mn`: Монгол
+- `mr`: मराठी
+- `ms`: Bahasa Melayu
+- `my`: မြန်မာ
+- `nb`: Norsk bokmål
+- `ne`: नेपाली
+- `nl`: Nederlands
+- `nn`: Norsk nynorsk
+- `pa`: ਪੰਜਾਬੀ
+- `pl`: Polski
+- `pt`: Português (base locale for all Portuguese variants)
+- `rm`: Rumantsch
+- `ro`: Română
+- `ru`: Русский
+- `si`: සිංහල
+- `sk`: Slovenčina
+- `sl`: Slovenščina
+- `sq`: Shqip
+- `sr`: Српски
+- `sv`: Svenska
+- `sw`: Kiswahili
+- `ta`: தமிழ்
+- `te`: తెలుగు
+- `th`: ไทย
+- `tr`: Türkçe
+- `uk`: Українська
+- `ur`: اردو (RTL)
+- `vi`: Tiếng Việt
+- `zh-CN`: 中文 (简体)
+- `zh-HK`: 中文 (香港)
+- `zh-TW`: 中文 (繁體)
+- `zu`: isiZulu
 
 ## Base Language Strategy
 
@@ -282,16 +282,16 @@ For example, if the user's locale is `en-IN` and a key exists in `en-IN.json`, u
 
 | Base Locale | Variants | Differences | Separate Files Needed? |
 |-------------|----------|-------------|------------------------|
-| `en` | `en-GB`, `en-AU`, `en-CA`, `en-IN`, `en-SG`, `en-ZA` | Mostly formatting (currency, date, numbers). en-IN uses lakhs/crores number system. UI strings are nearly identical. | No — use `en` as the base. Override only formatting via `Intl` API. Individual string overrides are rarely needed. |
-| `fr-FR` | `fr-CA` | Minor vocabulary differences (e.g., "courriel" vs "e-mail"). Grammar and UI strings are mostly shared. | Minimal — base on `fr-FR`, override a small number of strings in `fr-CA`. |
-| `es-ES` | `es-419`, `es-US` | Vocabulary differences (e.g., "ordenador" vs "computadora", "móvil" vs "celular"). Grammar differences with voseo in some Latin American regions. | Moderate — base on `es-ES`, override vocabulary-heavy strings in `es-419`. `es-US` can likely inherit from `es-419`. |
-| `pt-PT` | `pt-BR` | More noticeable spelling and grammar differences (e.g., "facto" vs "fato", gerund usage). Still shares the majority of strings. | Moderate — base on one variant, override differing strings in the other. |
-| `ms` | `ms-MY` | Effectively identical for formal/written contexts. | No — consolidate into `ms`. |
-| `fa` | `fa-IR`, `fa-AE`, `fa-AF` | `fa` and `fa-IR` are identical. `fa-AF` (Dari) has vocabulary differences. `fa-AE` is a small diaspora variant. | Minimal — base on `fa`, override for `fa-AF` where Dari vocabulary differs. |
+| `en` | `en-GB`, `en-AU`, `en-CA`, `en-IN`, `en-SG`, `en-ZA` | Mostly formatting (currency, date, numbers). en-IN uses lakhs/crores number system. UI strings are nearly identical. | No: use `en` as the base. Override only formatting via `Intl` API. Individual string overrides are rarely needed. |
+| `fr-FR` | `fr-CA` | Minor vocabulary differences (e.g., "courriel" vs "e-mail"). Grammar and UI strings are mostly shared. | Minimal: base on `fr-FR`, override a small number of strings in `fr-CA`. |
+| `es-ES` | `es-419`, `es-US` | Vocabulary differences (e.g., "ordenador" vs "computadora", "móvil" vs "celular"). Grammar differences with voseo in some Latin American regions. | Moderate: base on `es-ES`, override vocabulary-heavy strings in `es-419`. `es-US` can likely inherit from `es-419`. |
+| `pt-PT` | `pt-BR` | More noticeable spelling and grammar differences (e.g., "facto" vs "fato", gerund usage). Still shares the majority of strings. | Moderate: base on one variant, override differing strings in the other. |
+| `ms` | `ms-MY` | Effectively identical for formal/written contexts. | No: consolidate into `ms`. |
+| `fa` | `fa-IR`, `fa-AE`, `fa-AF` | `fa` and `fa-IR` are identical. `fa-AF` (Dari) has vocabulary differences. `fa-AE` is a small diaspora variant. | Minimal: base on `fa`, override for `fa-AF` where Dari vocabulary differs. |
 
 ### Important: Chinese Is NOT a Candidate for This Approach
 
-The Chinese variants — `zh-CN` (Simplified), `zh-TW` (Traditional), and `zh-HK` (Traditional, Hong Kong) — use **fundamentally different writing systems**, not just regional vocabulary. Simplified and Traditional Chinese have different character sets, and zh-HK includes Cantonese-influenced vocabulary distinct from zh-TW.
+The Chinese variants `zh-CN` (Simplified), `zh-TW` (Traditional), and `zh-HK` (Traditional, Hong Kong) use **fundamentally different writing systems**, not just regional vocabulary. Simplified and Traditional Chinese have different character sets, and zh-HK includes Cantonese-influenced vocabulary distinct from zh-TW.
 
 Each Chinese locale requires a **fully independent translation file**. Do not attempt to derive one from another through overrides.
 
