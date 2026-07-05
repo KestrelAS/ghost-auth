@@ -1,3 +1,5 @@
+#[cfg(target_os = "android")]
+mod android_downloads;
 mod backup;
 mod commands;
 mod crash_reporter;

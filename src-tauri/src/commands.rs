@@ -299,8 +299,6 @@ fn save_backup_file_inner(
     filename: &str,
     app_handle: &tauri::AppHandle,
 ) -> Result<String, String> {
-    use tauri::Manager;
-
     #[cfg(target_os = "ios")]
     {
         // iOS: write to temp dir, then present the native share sheet.
@@ -327,35 +325,76 @@ fn save_backup_file_inner(
         Ok(path_str)
     }
 
-    #[cfg(not(target_os = "ios"))]
+    #[cfg(target_os = "android")]
     {
-        // Android / other: save directly to Downloads directory.
-        let backup_dir = app_handle.path().download_dir().map_err(|e| {
-            tracing::error!(error = %e, "Failed to resolve downloads directory");
-            "Failed to save backup".to_string()
-        })?;
-        std::fs::create_dir_all(&backup_dir).map_err(|e| {
-            tracing::error!(error = %e, "Failed to create backup directory");
-            "Failed to save backup".to_string()
-        })?;
-
-        let path = backup_dir.join(filename);
-
-        std::fs::write(&path, data).map_err(|e| {
-            tracing::error!(error = %e, "Failed to write backup file");
-            "Failed to save backup".to_string()
-        })?;
-
-        #[cfg(unix)]
-        {
-            use std::os::unix::fs::PermissionsExt;
-            let _ = std::fs::set_permissions(&path, std::fs::Permissions::from_mode(0o600));
+        // Android 10+ (API 29): scoped storage forbids raw filesystem writes to
+        // shared storage, so save into the public Downloads collection through
+        // MediaStore. This needs no runtime permission and makes the file
+        // visible in the user's Downloads — unlike the app-scoped external
+        // directory that `download_dir()` resolves to on Android.
+        match crate::android_downloads::save_to_downloads(
+            filename,
+            "application/octet-stream",
+            data,
+        ) {
+            Ok(location) => {
+                tracing::info!(event = "backup_saved", location = %location, "Backup saved to public Downloads via MediaStore");
+                Ok(location)
+            }
+            Err(e) => {
+                // Pre-29 devices (or an unexpected MediaStore failure) fall back
+                // to the app-scoped external directory so the export still
+                // completes rather than failing outright.
+                tracing::warn!(error = %e, "MediaStore save unavailable; falling back to app-private storage");
+                save_to_download_dir(data, filename, app_handle)
+            }
         }
-
-        let path_str = path.to_string_lossy().to_string();
-        tracing::info!(event = "backup_saved", path = %path_str, "Backup file saved");
-        Ok(path_str)
     }
+
+    #[cfg(not(any(target_os = "ios", target_os = "android")))]
+    {
+        // Desktop: download_dir() is the user's real Downloads folder.
+        save_to_download_dir(data, filename, app_handle)
+    }
+}
+
+/// Write a file into the Downloads directory reported by Tauri's path resolver.
+/// On desktop this is the user's real Downloads folder; on Android it is the
+/// app-scoped external directory, used only as a pre-29 fallback for
+/// [`save_backup_file_inner`].
+#[cfg(not(target_os = "ios"))]
+fn save_to_download_dir(
+    data: &[u8],
+    filename: &str,
+    app_handle: &tauri::AppHandle,
+) -> Result<String, String> {
+    use tauri::Manager;
+
+    let backup_dir = app_handle.path().download_dir().map_err(|e| {
+        tracing::error!(error = %e, "Failed to resolve downloads directory");
+        "Failed to save backup".to_string()
+    })?;
+    std::fs::create_dir_all(&backup_dir).map_err(|e| {
+        tracing::error!(error = %e, "Failed to create backup directory");
+        "Failed to save backup".to_string()
+    })?;
+
+    let path = backup_dir.join(filename);
+
+    std::fs::write(&path, data).map_err(|e| {
+        tracing::error!(error = %e, "Failed to write backup file");
+        "Failed to save backup".to_string()
+    })?;
+
+    #[cfg(unix)]
+    {
+        use std::os::unix::fs::PermissionsExt;
+        let _ = std::fs::set_permissions(&path, std::fs::Permissions::from_mode(0o600));
+    }
+
+    let path_str = path.to_string_lossy().to_string();
+    tracing::info!(event = "backup_saved", path = %path_str, "Backup file saved");
+    Ok(path_str)
 }
 
 #[tauri::command]
